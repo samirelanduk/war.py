@@ -9,6 +9,8 @@ class Game:
 @dataclass
 class Player:
     game: Game
+    order: int
+    is_active: bool
 
 @dataclass
 class Unit:
@@ -16,6 +18,16 @@ class Unit:
     y: int
     player: Player
     game: Game
+    health: int
+
+
+
+@dataclass
+class UnitAction:
+    unit: Unit
+    x: int
+    y: int
+    target: Unit
 
 
 
