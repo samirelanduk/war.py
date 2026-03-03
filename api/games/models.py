@@ -37,3 +37,12 @@ class Tile(models.Model):
     x = models.IntegerField()
     y = models.IntegerField()
     type = models.CharField(max_length=1, choices=TileType.choices)
+
+
+
+class Game(models.Model):
+    map = models.ForeignKey(Map, on_delete=models.CASCADE, related_name="games")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
