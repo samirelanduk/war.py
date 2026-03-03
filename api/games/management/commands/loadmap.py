@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from maps.models import Map
+from games.models import Map
 
 class Command(BaseCommand):
     help = "Create a map from a text file"

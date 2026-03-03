@@ -17,7 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt && pip install gunicorn psyco
 
 # Copy the Django project
 COPY --chown=warpy:warpy core /app/core
-COPY --chown=warpy:warpy maps /app/maps
+COPY --chown=warpy:warpy games /app/games
 COPY --chown=warpy:warpy manage.py /app/manage.py
 
 # Switch to the warpy user

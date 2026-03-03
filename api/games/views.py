@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from maps.models import Map
-from maps.serializers import MapListSerializer, MapDetailSerializer
+from games.models import Map
+from games.serializers import MapListSerializer, MapDetailSerializer
 
 class MapListView(ListAPIView):
     queryset = Map.objects.all()

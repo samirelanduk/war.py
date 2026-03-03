@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from maps.models import Map, Tile
+from games.models import Map, Tile
 
 class MapListSerializer(serializers.ModelSerializer):
     class Meta:

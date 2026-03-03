@@ -1,5 +1,5 @@
 from django.urls import path
-from maps.views import MapListView, MapDetailView
+from games.views import MapListView, MapDetailView
 
 urlpatterns = [
     path("maps/", MapListView.as_view()),
