@@ -8,6 +8,17 @@ class Map(models.Model):
     def __str__(self):
         return self.name
 
+    @staticmethod
+    def from_file(name, path):
+        with open(path) as f: lines = f.read().strip().splitlines()
+        map_obj = Map.objects.create(name=name, width=len(lines[0]), height=len(lines))
+        Tile.objects.bulk_create([
+            Tile(map=map_obj, x=x, y=y, type=char)
+            for y, line in enumerate(lines)
+            for x, char in enumerate(line)
+        ])
+        return map_obj
+
 
 
 class TileType(models.TextChoices):
