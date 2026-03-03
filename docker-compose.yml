@@ -10,7 +10,7 @@ x-api-base: &api-base
     context: api
     dockerfile: Dockerfile
   volumes:
-    - ./api:/api
+    - ./api:/app
   depends_on:
     postgres:
       condition: service_healthy

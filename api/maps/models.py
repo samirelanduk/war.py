@@ -33,7 +33,7 @@ class TileType(models.TextChoices):
 
 
 class Tile(models.Model):
-    map = models.ForeignKey(Map, on_delete=models.CASCADE)
+    map = models.ForeignKey(Map, on_delete=models.CASCADE, related_name="tiles")
     x = models.IntegerField()
     y = models.IntegerField()
     type = models.CharField(max_length=1, choices=TileType.choices)
