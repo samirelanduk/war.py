@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "rest_framework",
     "core",
+    "maps",
     "games",
 ]
 
