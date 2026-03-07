@@ -22,13 +22,19 @@ class Map(models.Model):
 
 
 class TileType(models.TextChoices):
-    GRASS    = "G", "Grass"
-    SEA      = "S", "Sea"
-    FOREST   = "F", "Forest"
-    MOUNTAIN = "M", "Mountain"
-    RIVER    = "V", "River"
-    ROAD     = "R", "Road"
-    BRIDGE   = "B", "Bridge"
+    GRASS    = "GR", "Grass"
+    SEA      = "SE", "Sea"
+    BEACH    = "BE", "Beach"
+    FOREST   = "FR", "Forest"
+    MOUNTAIN = "MT", "Mountain"
+    RIVER    = "RV", "River"
+    ROAD     = "RO", "Road"
+    BRIDGE   = "BR", "Bridge"
+    CITY     = "CT", "City"
+    FACTORY  = "FC", "Factory"
+    PORT     = "PO", "Port"
+    AIRPORT  = "AP", "Airport"
+    HQ       = "HQ", "Headquarters"
 
 
 
@@ -36,7 +42,8 @@ class Tile(models.Model):
     map = models.ForeignKey(Map, on_delete=models.CASCADE, related_name="tiles")
     x = models.IntegerField()
     y = models.IntegerField()
-    type = models.CharField(max_length=1, choices=TileType.choices)
+    initial_owner = models.IntegerField(null=True, blank=True)
+    type = models.CharField(max_length=2, choices=TileType.choices)
 
 
 
