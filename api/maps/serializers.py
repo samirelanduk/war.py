@@ -10,7 +10,7 @@ class MapListSerializer(serializers.ModelSerializer):
 class TileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tile
-        fields = ["x", "y", "type"]
+        fields = ["x", "y", "type", "is_hq", "owner"]
 
 
 class MapDetailSerializer(serializers.ModelSerializer):

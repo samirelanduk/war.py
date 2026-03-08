@@ -17,9 +17,10 @@ class Map(models.Model):
         return (agg["max_y"] or 0) + 1
 
     @staticmethod
-    def from_file(name, path, *, update=False):
+    def from_file(path, update=False):
         with open(path) as f:
             data = json.load(f)
+        name = data["name"]
         with transaction.atomic():
             existing = Map.objects.filter(name=name).first()
             if existing and not update:

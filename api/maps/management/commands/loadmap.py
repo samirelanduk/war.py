@@ -6,13 +6,12 @@ class Command(BaseCommand):
     help = "Create a map from a JSON file"
 
     def add_arguments(self, parser):
-        parser.add_argument("name", help="Name for the map")
         parser.add_argument("path", help="Path to the map JSON file")
         parser.add_argument("--update", action="store_true", help="Replace tiles/units if map already exists")
 
     def handle(self, *args, **options):
         try:
-            map_obj = Map.from_file(options["name"], options["path"], update=options["update"])
+            map_obj = Map.from_file(options["path"], update=options["update"])
         except ValueError as e:
             self.stderr.write(self.style.ERROR(str(e)))
             return
