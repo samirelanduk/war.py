@@ -1,3 +1,6 @@
+import grassImg from "../assets/grass.png";
+import seaImg from "../assets/sea.png";
+
 const Tile = props => {
 
   const { tile } = props;
@@ -39,9 +42,11 @@ const Tile = props => {
   return (
     <div
       className="absolute"
-      style={{ left: (tile.x - 1) * tileSize, top: (tile.y - 1) * tileSize }}
+      style={{ left: (tile.x - 1) * tileSize, top: (tile.y - 1) * tileSize, height: tileSize, width: tileSize }}
     >
-      <div className={`${tileColor(tile)} ${border(tile)}`} style={{ width: tileSize, height: tileSize }}></div>
+      {tile.type === "GR" && <img src={grassImg} alt="Grass" className="w-full h-full [image-rendering:pixelated]" />}
+      {tile.type === "SE" && <img src={seaImg} alt="Sea" className="w-full h-full [image-rendering:pixelated]" />}
+      {tile.type !== "GR" && tile.type !== "SE" && <div className={`${tileColor(tile)} ${border(tile)}`} style={{ width: tileSize, height: tileSize }}></div>}
     </div>
   );
 };
