@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MapsPage from "./pages/MapsPage";
+import NewGamePage from "./pages/NewGamePage";
 import MapPage from "./pages/MapPage";
 import GamesPage from "./pages/GamesPage";
 
@@ -12,6 +13,7 @@ const App = () => {
         <Route path="/maps" element={<MapsPage />} />
         <Route path="/maps/:id" element={<MapPage />} />
         <Route path="/games" element={<GamesPage />} />
+        <Route path="/games/new" element={<NewGamePage />} />
       </Routes>
     </BrowserRouter>
   );
